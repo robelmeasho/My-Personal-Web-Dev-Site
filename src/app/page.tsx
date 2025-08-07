@@ -7,7 +7,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import NavBar from "./components/Navbar";
+import Image from "next/image";
 import Footer from "./components/Footer";
 
 import Skill from "./components/Skill";
@@ -120,7 +120,7 @@ const FlowingCurves: React.FC<{
 };
 
 // Hero Section Component
-const Hero: React.FC<HeroProps> = () => {
+const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
@@ -218,7 +218,7 @@ const Hero: React.FC<HeroProps> = () => {
               <div className="relative">
                 {/* X-ray head visualization */}
                 <div className="aspect-[4/5] rounded-full bg-blue-900 relative overflow-hidden">
-                  <img
+                  <Image
                     src="/profile.png"
                     alt="Profile"
                     loading="lazy"
@@ -332,7 +332,7 @@ const Hero: React.FC<HeroProps> = () => {
 };
 
 // Content Section Component
-const ContentSection: React.FC<ContentSectionProps> = () => {
+const ContentSection: React.FC= () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
@@ -391,7 +391,7 @@ const ContentSection: React.FC<ContentSectionProps> = () => {
           {/* Right Column */}
           <div>
             <h2 className="animate-text text-white text-2xl md:text-3xl mb-8">
-              AND EVERYONE DESERVES SUPPORT NO MATTER WHICH JOURNEY YOU'RE
+              AND EVERYONE DESERVES SUPPORT NO MATTER WHICH JOURNEY YOU`RE
               NAVIGATING
             </h2>
             <p className="animate-text text-white text-base md:text-lg mb-6">
@@ -434,3 +434,4 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
