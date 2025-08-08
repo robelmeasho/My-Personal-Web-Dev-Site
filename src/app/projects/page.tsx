@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowRight, Music, Brain, Heart, Moon } from "lucide-react";
+import { ArrowRight, Music, Brain, Heart } from "lucide-react";
 
 // Logo Component
 const TuneInLogo: React.FC<{ className?: string }> = ({ className = "" }) => {
