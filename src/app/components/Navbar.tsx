@@ -31,7 +31,6 @@ export default function NavBar() {
 
   const menuItems = [
     { name: "HOME 🧠", href: "/" },
-    { name: "PROJECTS ✍🏼", href: "/projects" },
     { name: "CONTACT 📱", href: "/contact" },
   ];
 
