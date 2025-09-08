@@ -402,19 +402,19 @@ const ContentSection: React.FC= () => {
           </div>
         </div>
 
-        <motion.div
+         <motion.div
           className="mt-16 md:mt-24 text-center"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <Link href="/assessment">
+          <Link href="https://github.com/robelmeasho" target="_blank" rel="noopener noreferrer">
             <motion.span
               className="inline-block text-neon-teal text-lg md:text-xl px-8 md:px-12 py-3 md:py-4 border-2 border-neon-teal rounded-full hover:bg-neon-teal hover:bg-opacity-10 transition-all duration-300 cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              START YOUR JOURNEY
+              Explore My GitHub Profile
             </motion.span>
           </Link>
         </motion.div>
