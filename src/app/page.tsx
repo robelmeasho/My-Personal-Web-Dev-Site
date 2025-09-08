@@ -264,6 +264,7 @@ const Hero: React.FC = () => {
                 <h2 className="text-neon-teal text-2xl mb-2">PYTHON, REACT</h2>
                 <h2 className="text-neon-teal text-2xl mb-4">NEXT.JS</h2>
                 <h2 className="text-neon-teal text-2xl mb-1">MYSQL</h2>
+                <h2 className="text-neon-teal text-2xl mb-1">POSTGRE SQL</h2>
               </div>
 
               <div className="mt-12 text-white">
