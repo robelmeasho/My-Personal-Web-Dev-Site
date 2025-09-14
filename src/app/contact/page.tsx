@@ -1,7 +1,8 @@
-// app/contacts/page.tsx (or app/contact/page.tsx - match your navbar link)
+// app/contacts/page.tsx
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -9,11 +10,38 @@ export default function ContactPage() {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const result = await emailjs.send(
+        "service_bg95ate",
+        "template_p1djgbn", 
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: "robel-measho@hotmail.com",
+        },
+        "Vh60V1lQkORAI9EUT"
+      );
+
+      console.log("Email sent successfully:", result);
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -27,10 +55,8 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      {/* Add padding-top to account for fixed navbar */}
       <div className="pt-24 pb-12 px-6 sm:px-10">
         <div className="max-w-4xl mx-auto">
-          {/* Header Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -47,7 +73,6 @@ export default function ContactPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -57,6 +82,22 @@ export default function ContactPage() {
               <h2 className="text-2xl font-bold text-white mb-6">
                 Send a Message
               </h2>
+
+              {/* Success/Error Messages */}
+              {submitStatus === "success" && (
+                <div className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg">
+                  <p className="text-green-300">
+                    ✅ Message sent successfully!
+                  </p>
+                </div>
+              )}
+              {submitStatus === "error" && (
+                <div className="mb-6 p-4 bg-red-500/20 border border-red-500/30 rounded-lg">
+                  <p className="text-red-300">
+                    ❌ Failed to send message. Please try again.
+                  </p>
+                </div>
+              )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -69,8 +110,9 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-lime-300 focus:border-transparent transition-all"
-                    placeholder="input your name..."
+                    placeholder="Input your name..."
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -86,6 +128,7 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-lime-300 focus:border-transparent transition-all"
                     placeholder="youremail@example.com"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -101,16 +144,18 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-lime-300 focus:border-transparent transition-all resize-none"
                     placeholder="Tell me about your project..."
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
                 <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                   type="submit"
-                  className="w-full bg-lime-300 hover:bg-lime-400 text-gray-900 font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
+                  disabled={isSubmitting}
+                  className="w-full bg-lime-300 hover:bg-lime-400 text-gray-900 font-semibold py-3 px-6 rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Message ✉️
+                  {isSubmitting ? "Sending... ⏳" : "Send Message ✉️"}
                 </motion.button>
               </form>
             </motion.div>
@@ -168,5 +213,3 @@ export default function ContactPage() {
     </div>
   );
 }
-
-// app/tune/page.tsx (Projects page to match your navbar)
