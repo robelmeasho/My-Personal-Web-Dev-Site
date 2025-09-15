@@ -19,28 +19,24 @@ const Footer: React.FC = () => {
 
           {/* About Links */}
           <div>
-            <h3 className="text-white text-lg mb-4">Soical Media</h3>
+            <h3 className="text-white text-lg mb-4">Social Media</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/about">
-                  <span className="text-white text-sm opacity-70 hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-                    InstaGram
-                  </span>
+                 
                 </Link>
               </li>
+              <li></li>
               <li>
-                <Link href="/team">
-                  <span className="text-white text-sm opacity-70 hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-                    FaceBook
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact">
+                <a 
+                  href="https://github.com/robelmeasho" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
                   <span className="text-white text-sm opacity-70 hover:opacity-100 transition-opacity duration-300 cursor-pointer">
                     GitHub
                   </span>
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -49,27 +45,9 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-white text-lg mb-4"> Contact</h3>
             <div className="flex space-x-4">
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.2 }}
-                className="w-10 h-10 rounded-full bg-neon-teal bg-opacity-20 flex items-center justify-center"
-                aria-label="Facebook"
-              ></motion.a>
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.2 }}
-                className="w-10 h-10 rounded-full bg-neon-teal bg-opacity-20 flex items-center justify-center"
-                aria-label="Twitter"
-              ></motion.a>
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.2 }}
-                className="w-10 h-10 rounded-full bg-neon-teal bg-opacity-20 flex items-center justify-center"
-                aria-label="Instagram"
-              ></motion.a>
+     
+       
+       
             </div>
           </div>
         </div>
