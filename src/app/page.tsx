@@ -17,7 +17,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div className="bg-deep-blue min-h-screen flex flex-col">
       <Head>
-        <title>Robel`s Dev Site</title>
+        <title>Robel's Dev Site</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
           rel="stylesheet"
@@ -172,160 +173,270 @@ const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-20 min-h-screen flex flex-col">
-        <div className="flex-grow grid grid-cols-12 items-center">
-          {/* Left Column */}
-          <div className="col-span-12 md:col-span-3 pl-8 md:pl-12">
-            <motion.div
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="mb-6"
-            >
-              <h1 className="text-white text-5xl uppercase mb-2 underline"></h1>
-            </motion.div>
+        <div className="flex-grow">
+          {/* Mobile Layout - Stacked vertically */}
+          <div className="block md:hidden">
+            {/* Mobile Profile Section */}
+            <div className="flex flex-col items-center pt-8 pb-6 px-4">
+              <motion.div
+                className="head-visual relative w-64 mb-6"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.2 }}
+              >
+                <div className="relative">
+                  <div className="aspect-square rounded-full bg-blue-900 relative overflow-hidden">
+                    <Image
+                      src="/profile.png"
+                      alt="Profile"
+                      loading="lazy"
+                      width={256}
+                      height={256}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-200 to-teal-300 opacity-25"></div>
+                  </div>
+                </div>
+              </motion.div>
 
-            <motion.div
-              initial={{ y: 10, opacity: 0 }}
-              animate={{ y: 0, opacity: 10 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <div className="bg-navy p-6">
-                <h2 className="text-white text-2xl mb-4">CREATIVE MIND</h2>
-                <h2 className="text-neon-teal text-xl mb-2">WEB DEVELOPER</h2>
-                <h2 className="text-neon-teal text-xl mb-4">UI/UX DESIGNER</h2>
-                <h2 className="text-neon-teal text-xl mb-2">WEB DESIGNER</h2>
-                <h2 className="text-neon-teal text-xl mb-4">
-                  TEAM-ORIENTED PROFESSIONAL
-                </h2>
-              </div>
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="text-center mb-8"
+              >
+                <h1 className="text-white text-3xl uppercase mb-4 font-bold">Robel Measho</h1>
+                <h2 className="text-neon-teal text-xl mb-2">Full Stack Developer</h2>
+                <p className="text-white text-sm uppercase tracking-wide">Based in Edmonton, Alberta</p>
+              </motion.div>
+            </div>
 
-              <div className="mt-12 text-white">
-                <p className="uppercase text-sm mb-1">FEEL SUPPORTED</p>
-                <p className="uppercase text-sm mb-1"> WITH DEVLOPER </p>
-                <p className="uppercase text-sm mb-1">THAT CODES AND CARES </p>
-              </div>
-            </motion.div>
+            {/* Mobile Skills & Services Cards */}
+            <div className="px-4 pb-8 space-y-6">
+              <motion.div
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="bg-navy bg-opacity-80 backdrop-blur-sm p-6 rounded-xl border border-neon-teal border-opacity-20"
+              >
+                <h3 className="text-white text-lg mb-4 font-semibold">Creative Services</h3>
+                <div className="space-y-2">
+                  <p className="text-neon-teal text-sm">• Web Development</p>
+                  <p className="text-neon-teal text-sm">• UI/UX Design</p>
+                  <p className="text-neon-teal text-sm">• Web Design</p>
+                  <p className="text-neon-teal text-sm">• Team-Oriented Development</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="bg-navy bg-opacity-80 backdrop-blur-sm p-6 rounded-xl border border-neon-teal border-opacity-20"
+              >
+                <h3 className="text-white text-lg mb-4 font-semibold">Technical Skills</h3>
+                <div className="grid grid-cols-2 gap-2">
+                  <p className="text-neon-teal text-sm">• HTML & CSS</p>
+                  <p className="text-neon-teal text-sm">• JavaScript</p>
+                  <p className="text-neon-teal text-sm">• Python</p>
+                  <p className="text-neon-teal text-sm">• React</p>
+                  <p className="text-neon-teal text-sm">• Next.js</p>
+                  <p className="text-neon-teal text-sm">• MySQL</p>
+                  <p className="text-neon-teal text-sm col-span-2">• PostgreSQL</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="bg-navy bg-opacity-80 backdrop-blur-sm p-6 rounded-xl border border-neon-teal border-opacity-20 text-center"
+              >
+                <p className="text-white text-sm uppercase mb-2">Feel Supported</p>
+                <p className="text-white text-sm uppercase mb-2">With Developer</p>
+                <p className="text-white text-sm uppercase">That Codes and Cares</p>
+              </motion.div>
+            </div>
           </div>
 
-          {/* Center Column - Head Visual */}
-          <div className="col-span-12 md:col-span-6 flex justify-center py-12 md:py-0">
-            <motion.div
-              className="head-visual relative w-full max-w-[500px]"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2 }}
-            >
-              <div className="relative">
-                {/* X-ray head visualization */}
-                <div className="aspect-[4/5] rounded-full bg-blue-900 relative overflow-hidden">
-                  <Image
-                    src="/profile.png"
-                    alt="Profile"
-                    loading="lazy"
-                    width={500}
-                    height={500}
-                    className="w-full h-full object-cover rounded-full"
-                  />
-                  <div className="absolute  bg-gradient-to-r from-blue-200 to-teal-300 opacity-25"></div>
+          {/* Desktop Layout - Original Grid */}
+          <div className="hidden md:grid grid-cols-12 items-center min-h-screen">
+            {/* Left Column */}
+            <div className="col-span-3 pl-12">
+              <motion.div
+                initial={{ x: -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="mb-6"
+              >
+                <h1 className="text-white text-5xl uppercase mb-2 underline"></h1>
+              </motion.div>
+
+              <motion.div
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
+                <div className="bg-navy p-6">
+                  <h2 className="text-white text-2xl mb-4">CREATIVE MIND</h2>
+                  <h2 className="text-neon-teal text-xl mb-2">WEB DEVELOPER</h2>
+                  <h2 className="text-neon-teal text-xl mb-4">UI/UX DESIGNER</h2>
+                  <h2 className="text-neon-teal text-xl mb-2">WEB DESIGNER</h2>
+                  <h2 className="text-neon-teal text-xl mb-4">
+                    TEAM-ORIENTED PROFESSIONAL
+                  </h2>
                 </div>
 
-                <div
-                  ref={textRef}
-                  className="absolute top-0 left-0 w-full h-full flex justify-center items-center"
-                >
-                  <span className="title-text text-white text-8xl md:text-9xl font-light italic opacity-0"></span>
+                <div className="mt-12 text-white">
+                  <p className="uppercase text-sm mb-1">FEEL SUPPORTED</p>
+                  <p className="uppercase text-sm mb-1">WITH DEVELOPER</p>
+                  <p className="uppercase text-sm mb-1">THAT CODES AND CARES</p>
                 </div>
-              </div>
-            </motion.div>
-          </div>
+              </motion.div>
+            </div>
 
-          {/* Right Column */}
-          <div className="col-span-12 md:col-span-3 pr-8 md:pr-12">
-            <motion.div
-              initial={{ x: 100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-right mb-6"
-            >
-              <h1 className="text-white uppercase mb-2 text-4xl underline">
-                My Skills
-              </h1>
-            </motion.div>
+            {/* Center Column - Head Visual */}
+            <div className="col-span-6 flex justify-center py-12">
+              <motion.div
+                className="head-visual relative w-full max-w-[500px]"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.2 }}
+              >
+                <div className="relative">
+                  <div className="aspect-[4/5] rounded-full bg-blue-900 relative overflow-hidden">
+                    <Image
+                      src="/profile.png"
+                      alt="Profile"
+                      loading="lazy"
+                      width={500}
+                      height={500}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-200 to-teal-300 opacity-25"></div>
+                  </div>
 
-            <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-right"
-            >
-              <div className="bg-navy p-6">
-                <h2 className="text-white text-2xl mb-2">HTML, CSS,</h2>
-                <h2 className="text-neon-teal text-2xl mb-2">JAVASCRIPT</h2>
-                <h2 className="text-neon-teal text-2xl mb-2">PYTHON, REACT</h2>
-                <h2 className="text-neon-teal text-2xl mb-4">NEXT.JS</h2>
-                <h2 className="text-neon-teal text-2xl mb-1">MYSQL</h2>
-                <h2 className="text-neon-teal text-2xl mb-1">POSTGRE SQL</h2>
-              </div>
+                  <div
+                    ref={textRef}
+                    className="absolute top-0 left-0 w-full h-full flex justify-center items-center"
+                  >
+                    <span className="title-text text-white text-8xl md:text-9xl font-light italic opacity-0"></span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
 
-              <div className="mt-12 text-white">
-                <p className="uppercase text-sm mb-1">FEEL GROUNDED</p>
-                <p className="uppercase text-sm mb-1"> WITH CONFIDENCE</p>
-                <p className="uppercase text-sm">THAT UNDERSTANDS YOU</p>
-              </div>
-            </motion.div>
+            {/* Right Column */}
+            <div className="col-span-3 pr-12">
+              <motion.div
+                initial={{ x: 100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="text-right mb-6"
+              >
+                <h1 className="text-white uppercase mb-2 text-4xl underline">
+                  My Skills
+                </h1>
+              </motion.div>
+
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="text-right"
+              >
+                <div className="bg-navy p-6">
+                  <h2 className="text-white text-2xl mb-2">HTML, CSS,</h2>
+                  <h2 className="text-neon-teal text-2xl mb-2">JAVASCRIPT</h2>
+                  <h2 className="text-neon-teal text-2xl mb-2">PYTHON, REACT</h2>
+                  <h2 className="text-neon-teal text-2xl mb-4">NEXT.JS</h2>
+                  <h2 className="text-neon-teal text-2xl mb-1">MYSQL</h2>
+                  <h2 className="text-neon-teal text-2xl mb-1">POSTGRE SQL</h2>
+                </div>
+
+                <div className="mt-12 text-white">
+                  <p className="uppercase text-sm mb-1">FEEL GROUNDED</p>
+                  <p className="uppercase text-sm mb-1">WITH CONFIDENCE</p>
+                  <p className="uppercase text-sm">THAT UNDERSTANDS YOU</p>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
 
-        {/* Bottom content */}
-        <div className="py-6 px-4 md:px-12 grid grid-cols-3 md:flex md:justify-between items-center text-sm">
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="text-center md:text-left"
-          >
-            <span className="text-neon-teal font-digital">Robel Measho</span>
-          </motion.div>
+        {/* Bottom content - Improved mobile layout */}
+        <div className="py-6 px-4 md:px-12">
+          {/* Mobile Bottom Layout */}
+          <div className="block md:hidden">
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              className="grid grid-cols-2 gap-4 text-center text-sm"
+            >
+              <div>
+                <span className="text-neon-teal font-digital">2024</span>
+              </div>
+              <div>
+                <span className="text-neon-teal font-digital">TUNE IN</span>
+              </div>
+              <div className="col-span-2 mt-2">
+                <span className="text-neon-teal font-digital text-xs">
+                  CANADA • EDMONTON ALBERTA
+                </span>
+              </div>
+            </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="flex items-center justify-center space-x-2"
-          >
-            2024
-            <span className="text-neon-teal font-digital whitespace-nowrap"></span>
-          </motion.div>
+          {/* Desktop Bottom Layout */}
+          <div className="hidden md:flex md:justify-between items-center text-sm">
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1 }}
+            >
+              <span className="text-neon-teal font-digital">Robel Measho</span>
+            </motion.div>
 
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-            className="hidden md:block text-neon-teal font-digital whitespace-nowrap"
-          >
-            Tune IN
-          </motion.div>
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="flex items-center space-x-2"
+            >
+              2024
+              <span className="text-neon-teal font-digital"></span>
+            </motion.div>
 
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.6 }}
-            className="flex items-center justify-center space-x-2"
-          >
-            CANADA
-            <span className="text-neon-teal font-digital whitespace-nowrap"></span>
-          </motion.div>
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
+              className="text-neon-teal font-digital"
+            >
+              Tune IN
+            </motion.div>
 
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.8 }}
-            className="text-center md:text-right col-span-3 md:col-span-1 mt-4 md:mt-0"
-          >
-            <span className="text-neon-teal font-digital">
-              BASED IN Edmonton Alberta
-            </span>
-          </motion.div>
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.6 }}
+              className="flex items-center space-x-2"
+            >
+              CANADA
+              <span className="text-neon-teal font-digital"></span>
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.8 }}
+            >
+              <span className="text-neon-teal font-digital">
+                BASED IN Edmonton Alberta
+              </span>
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
@@ -333,14 +444,13 @@ const Hero: React.FC = () => {
 };
 
 // Content Section Component
-const ContentSection: React.FC= () => {
+const ContentSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Register GSAP plugins if window is defined
     if (typeof ScrollTrigger !== "undefined") {
       gsap.registerPlugin(ScrollTrigger);
 
@@ -369,49 +479,77 @@ const ContentSection: React.FC= () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="bg-navy py-16 md:py-24 px-6 md:px-12">
+    <div ref={sectionRef} className="bg-navy py-12 md:py-24 px-4 md:px-12">
       <div className="max-w-6xl mx-auto" ref={textRef}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-          {/* Left Column */}
+        {/* Mobile Layout - Stacked */}
+        <div className="block md:hidden space-y-8">
           <div>
-            <h2 className="animate-text text-white text-2xl md:text-3xl mb-8">
-              I HAVE TRANSFORMED MY LIFE THRU CODING AND THE LOVE THAT COMES
+            <h2 className="animate-text text-white text-xl mb-6 leading-relaxed">
+              I HAVE TRANSFORMED MY LIFE THROUGH CODING AND THE LOVE THAT COMES
               FROM DEVELOPING
             </h2>
-            <p className="animate-text text-white text-base md:text-lg mb-6">
-              I AM CONFIDENT IN MY SKILL WITH HTML, CSS, JAVASCRIPT, REACT,
-              NEXT.JS, AND BOOTSTRAP. Whether you’re launching your first
+            <p className="animate-text text-white text-base mb-6 leading-relaxed">
+              I AM CONFIDENT IN MY SKILLS WITH HTML, CSS, JAVASCRIPT, REACT,
+              NEXT.JS, AND BOOTSTRAP. Whether you're launching your first
               business, refreshing your brand, or ready to level up your online
-              presence—I’ve got you covered
+              presence—I've got you covered.
             </p>
-            <p className="animate-text text-white text-base md:text-lg">
-              ALWAYS BUILDING AND LEARNING TO BE THE BEST IN CODING WORLD 🧑🏾‍💻
+            <p className="animate-text text-white text-base leading-relaxed">
+              ALWAYS BUILDING AND LEARNING TO BE THE BEST IN THE CODING WORLD 🧑🏾‍💻
             </p>
           </div>
 
-          {/* Right Column */}
           <div>
-            <h2 className="animate-text text-white text-2xl md:text-3xl mb-8">
-              AND EVERYONE DESERVES SUPPORT NO MATTER WHICH JOURNEY YOU`RE
+            <h2 className="animate-text text-white text-xl mb-6 leading-relaxed">
+              AND EVERYONE DESERVES SUPPORT NO MATTER WHICH JOURNEY YOU'RE
               NAVIGATING
             </h2>
-            <p className="animate-text text-white text-base md:text-lg mb-6">
+            <p className="animate-text text-white text-base mb-6 leading-relaxed">
               I am a Web Developer located in Edmonton, Alberta. I currently am
-              in the University of Alberta located in Edmonton becoming a Full
-              Stack Devloper.
+              at the University of Alberta becoming a Full Stack Developer.
             </p>
           </div>
         </div>
 
-         <motion.div
-          className="mt-16 md:mt-24 text-center"
+        {/* Desktop Layout - Original Grid */}
+        <div className="hidden md:grid grid-cols-2 gap-16">
+          <div>
+            <h2 className="animate-text text-white text-2xl md:text-3xl mb-8">
+              I HAVE TRANSFORMED MY LIFE THROUGH CODING AND THE LOVE THAT COMES
+              FROM DEVELOPING
+            </h2>
+            <p className="animate-text text-white text-base md:text-lg mb-6">
+              I AM CONFIDENT IN MY SKILLS WITH HTML, CSS, JAVASCRIPT, REACT,
+              NEXT.JS, AND BOOTSTRAP. Whether you're launching your first
+              business, refreshing your brand, or ready to level up your online
+              presence—I've got you covered.
+            </p>
+            <p className="animate-text text-white text-base md:text-lg">
+              ALWAYS BUILDING AND LEARNING TO BE THE BEST IN THE CODING WORLD 🧑🏾‍💻
+            </p>
+          </div>
+
+          <div>
+            <h2 className="animate-text text-white text-2xl md:text-3xl mb-8">
+              AND EVERYONE DESERVES SUPPORT NO MATTER WHICH JOURNEY YOU'RE
+              NAVIGATING
+            </h2>
+            <p className="animate-text text-white text-base md:text-lg mb-6">
+              I am a Web Developer located in Edmonton, Alberta. I currently am
+              at the University of Alberta becoming a Full Stack Developer.
+            </p>
+          </div>
+        </div>
+
+        <motion.div
+          className="mt-12 md:mt-24 text-center"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <Link href="https://github.com/robelmeasho" target="_blank" rel="noopener noreferrer">
             <motion.span
-              className="inline-block text-neon-teal text-lg md:text-xl px-8 md:px-12 py-3 md:py-4 border-2 border-neon-teal rounded-full hover:bg-neon-teal hover:bg-opacity-10 transition-all duration-300 cursor-pointer"
+              className="inline-block text-neon-teal text-base md:text-xl px-6 md:px-12 py-3 md:py-4 border-2 border-neon-teal rounded-full hover:bg-neon-teal hover:bg-opacity-10 transition-all duration-300 cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -423,7 +561,6 @@ const ContentSection: React.FC= () => {
     </div>
   );
 };
-<Skill />;
 
 const Home: React.FC = () => {
   return (
@@ -435,4 +572,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-
