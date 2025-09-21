@@ -194,7 +194,6 @@ const Hero: React.FC = () => {
                       height={256}
                       className="w-full h-full object-cover rounded-full"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-200 to-teal-300 opacity-25"></div>
                   </div>
                 </div>
               </motion.div>
@@ -313,7 +312,6 @@ const Hero: React.FC = () => {
                       height={500}
                       className="w-full h-full object-cover rounded-full"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-200 to-teal-300 opacity-25"></div>
                   </div>
 
                   <div
