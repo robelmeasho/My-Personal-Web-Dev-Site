@@ -30,8 +30,8 @@ export default function NavBar() {
   }, [lastScrollY]);
 
   const menuItems = [
-    { name: "HOME 🧠", href: "/" },
-    { name: "CONTACT 📱", href: "/contact" },
+    { name: "HOME", href: "/" },
+    { name: "CONTACT", href: "/contact" },
   ];
 
   // Container variants for staggered menu items
