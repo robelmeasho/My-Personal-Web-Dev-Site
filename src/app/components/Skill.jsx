@@ -37,7 +37,7 @@ export default function Skill() {
     {
       id: 2,
       degree: "Power Engineering Techology",
-      institution: "NAIT, Edmonton Alberta ",
+      institution: "Lakeland College, Lloydminster, Alberta",
       years: "2014 - 2017",
       description:
         "Power engineering is a specialized field focused on the generation, transmission, distribution, and utilization of electric power, including the operation and maintenance of related equipment. It encompasses the entire process of how electricity is produced, moved, and used, from power plants to your home or business.",
